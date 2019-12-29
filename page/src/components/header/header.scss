@@ -1,0 +1,49 @@
+.top-header{
+    background-color: #333;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 15px 15px 15px 15px;
+    align-items: center;
+    ul{
+        list-style: none;
+        display: flex;
+        width: 50%;
+        align-items: center;
+        margin: 0;
+    }
+    .infor{
+        li{
+            padding-right: 10px;
+            span{
+                padding-left: 5px;
+            }
+        }
+    }
+    .social-contact{
+        justify-content: flex-end;
+        li{
+            float: right;
+            padding-right: 10px;
+        }
+
+    }
+}
+.main-header{
+    display: flex;
+    .logo{
+        width: 70%;
+    }
+    .menu-layout{
+        width: 30%;
+        float: right;
+        .menu{
+            border-bottom: none;
+            float: right;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+    }
+}
