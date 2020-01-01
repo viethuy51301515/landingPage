@@ -1,0 +1,27 @@
+.reason-header{
+    text-transform: uppercase;
+    line-height: 1.1rem;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-family: 'Roboto slab', sans-serif;
+    .title{
+        padding-bottom: 20px;
+        margin-bottom: 40px;
+        position: relative;
+        text-align: center;
+    }
+    .title::after{
+        position: absolute;
+        content: ' ';
+        border-bottom: 2px solid #333;
+        width: 100px;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    p{
+        text-align: center;
+        margin-bottom: 40px;
+    }
+}
