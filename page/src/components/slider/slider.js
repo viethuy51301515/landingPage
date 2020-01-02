@@ -24,7 +24,7 @@ class Slider extends React.Component{
             </div>
         ))
         return(
-            <div>
+            <div id='sliderId'>
                 <Carousel autoplay>
                     {items}
                 </Carousel>

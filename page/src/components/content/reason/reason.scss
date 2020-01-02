@@ -35,15 +35,14 @@
     height: 100%;
     position: relative;
     // background-color: rgb(34, 148, 255);
-    .listItem{
-        height: 50vh;
+    .listItem{ 
         width: 90%;
         margin: auto;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         display: grid;
-        grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
+        grid-template-columns: repeat(auto-fit,minmax(175px,1fr));
         position: relative;
     }
     .overlay{
@@ -68,7 +67,7 @@
 
 .reason-item{
     background: transparent;
-    border-left: 1px solid white;
+    border: 1px solid white;
     position: relative;
     padding: 10px;
     z-index: 2;
@@ -125,4 +124,12 @@
 }
 .reason-item:hover h2{
     visibility: hidden;
+}
+@media only screen and (max-width : 800px){
+    .reason-description{
+        flex-direction: column;
+    }
+    .menu{
+        visibility: hidden;
+    }
 }

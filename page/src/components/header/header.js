@@ -42,35 +42,57 @@ class Header extends React.Component{
                         <div className='menu-layout'>
                         <Menu mode='horizontal' className='menu' >
                             <Menu.Item key='1'>
-
-                                <span>
-                                    Home
-                                </span>
+                                    <a href='/'>Home</a>
+                            
                             </Menu.Item>
-                            <SubMenu
+                            {/* <SubMenu
                                 title={
                                     <span className="submenu-title-wrapper">
                                     <Icon type="setting" />
-                                    Nhome
+
                                     </span>
                                 }
                             >
                                 <Menu.Item key='2'>
                                     <span>home2</span>
                                 </Menu.Item>
-                            </SubMenu>
+                            </SubMenu> */}
                             <Menu.Item key='3'>
 
                                 <span>
-                                    Home
+                                    About Us
                                 </span>
                             </Menu.Item>
                             <Menu.Item key='4'>
 
                                 <span>
-                                    Home
+                                    Courses
                                 </span>
-                            </Menu.Item>                        
+                            </Menu.Item>       
+                            <Menu.Item key='5'>
+
+                                <span>
+                                    Teachers
+                                </span>
+                            </Menu.Item>  
+                            <Menu.Item key='6'>
+
+                                <span>
+                                    Lịch Học
+                                </span>
+                            </Menu.Item>   
+                            <Menu.Item key='7'>
+
+                                <span>
+                                    Học Phí
+                                </span>
+                            </Menu.Item> 
+                            <Menu.Item key='8'>
+
+                                <span>
+                                    Contact Us
+                                </span>
+                            </Menu.Item>          
                         </Menu>
                         </div>
                         
