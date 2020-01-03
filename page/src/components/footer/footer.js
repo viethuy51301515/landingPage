@@ -19,15 +19,18 @@ class Footer extends React.Component{
                 </div>
                 <div className='footer-about'>
                     <h1>About</h1>
-                    <h3>
-                        About Us
-                    </h3>
-                    <h3>
-                        Teachers
-                    </h3>
-                    <h3>
-                        Syllabus
-                    </h3>
+                    <div className="about-info">
+                        <h3>
+                            About Us
+                        </h3>
+                        <h3>
+                            Teachers
+                        </h3>
+                        <h3>
+                            Syllabus
+                        </h3>
+                    </div>
+                    
                 </div>
                 <div className="social-contact">
                     <h1>Follow us</h1>
