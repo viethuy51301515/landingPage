@@ -1,4 +1,18 @@
 .footer{
     background-color: #333;
     color: white;
+    display: flex;
+    flex-direction: row;
+    padding: 0 40px 0 40px;
+    justify-content: space-between;
+    .footer-contact{
+        h1{
+            color:white
+        }
+        .contact-info{
+            h3{
+                color:white;
+            }
+        }
+    }
 }
