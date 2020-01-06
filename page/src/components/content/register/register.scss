@@ -1,0 +1,34 @@
+// *{
+//     margin: 0;
+//     padding: 0;
+//     box-sizing: content-box;
+//     line-height: 1.5;
+//     color: white;
+//     --form-color:rgb(27, 27, 50,0.8);
+// }
+.register-layout{
+    background-image: linear-gradient( 115deg, rgba(58, 58, 158, 0.8), rgba(136, 136, 206, 0.7) ), url(https://raw.githubusercontent.com/lasjorg/fcc-form-example-image/master/67103817-7c51e200-f18b-11e9-975f-f74561336a9a-lj.jpg);
+    z-index: -1;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 30px 0 30px 0;
+}
+main{
+    text-align: center;
+}
+#title{
+    margin-top: 40px;
+}
+#description{
+    margin-bottom: 40px;
+    font-style: italic;
+}
+#survey-form{
+    // background: rgba(27, 27, 50,0.8);
+    width: 50%;
+    margin: auto;
+    padding: 30px;
+}
+
