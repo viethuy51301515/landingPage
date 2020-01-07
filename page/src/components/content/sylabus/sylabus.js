@@ -2,6 +2,7 @@ import React from 'react';
 import './sylabus.scss';
 import {Button } from 'antd';
 import ItemHeader from '../itemHeader';
+import {Link} from 'react-router-dom';
 const img = require('../../../assets/sylabus.png')
 const ItemSylabus = function(props) {
     return(
@@ -14,9 +15,11 @@ const ItemSylabus = function(props) {
                 <p>
                     Lorem ipsum dolor sit amet consect etrttur ading labo
                 </p>
-                <Button type='primary' className='buttonReadMore' style={{backgroundColor:'#f2552c',border:'none'}}>
-                    Read More
-                </Button>
+                <Link to={'detail/123'}>
+                    <Button type='primary' className='buttonReadMore' style={{backgroundColor:'#f2552c',border:'none'}}>
+                        Read More
+                    </Button>
+                </Link>
             </div>
         </div>
     )

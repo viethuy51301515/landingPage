@@ -1,6 +1,7 @@
 import React from 'react';
 import {Menu,Icon} from 'antd';
-import './header.scss'
+import './header.scss';
+import {Link} from 'react-router-dom';
 const {SubMenu} = Menu;
 class Header extends React.Component{
     constructor(props){
@@ -60,7 +61,7 @@ class Header extends React.Component{
                             <Menu.Item key='3'>
 
                                 <span>
-                                    About Us
+                                     About Us
                                 </span>
                             </Menu.Item>
                             <Menu.Item key='4'>
