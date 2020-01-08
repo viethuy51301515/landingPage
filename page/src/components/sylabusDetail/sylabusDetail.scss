@@ -1,0 +1,23 @@
+.sylabus-detail-item{
+   display: flex;
+   padding: 10px; 
+   align-items: center;
+   justify-content: space-between;
+   div{
+       padding: 60px;
+       h2{
+           font-weight: 600;
+           font-size: 2rem;
+       }
+   }
+}
+.image-header-detail{
+    width: 100%;
+}
+.item-header-detail-layout{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 80vh;
+}
