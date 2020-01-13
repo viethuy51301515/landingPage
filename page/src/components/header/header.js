@@ -6,6 +6,21 @@ const {SubMenu} = Menu;
 class Header extends React.Component{
     constructor(props){
         super(props);
+        this.changeSite = this.changeSite.bind(this);
+    }
+    changeSite(type){
+        switch (type) {
+            case 'facebook':
+                window.open('https://www.facebook.com/viethuy.phan')
+                break;
+            case 'youtube':
+                window.open('https://www.youtube.com');
+                break;
+            case 'instagram':
+                window.open('https://www.instagram.com');
+            default:
+                break;
+        }
     }
     render(){
         return(
@@ -23,16 +38,13 @@ class Header extends React.Component{
                     </ul>
                     <ul className="social-contact">
                         <li>
-                            <Icon type="facebook" />
+                            <Icon type="facebook" onClick={ () => this.changeSite("facebook") }/>
                         </li>
                         <li>
-                            <Icon type="instagram" />
+                            <Icon type="instagram" onClick={ () => this.changeSite("instagram") } />
                         </li>
                         <li>
-                            <Icon type="google" />
-                        </li>
-                        <li>
-                            <Icon type="youtube" />
+                            <Icon type="youtube" onClick={ () => this.changeSite("youtube") }/>
                         </li>
                     </ul>
                 </div>
@@ -46,52 +58,28 @@ class Header extends React.Component{
                                     <a href='/'>Home</a>
                             
                             </Menu.Item>
-                            {/* <SubMenu
-                                title={
-                                    <span className="submenu-title-wrapper">
-                                    <Icon type="setting" />
-
-                                    </span>
-                                }
-                            >
-                                <Menu.Item key='2'>
-                                    <span>home2</span>
-                                </Menu.Item>
-                            </SubMenu> */}
                             <Menu.Item key='3'>
 
                                 <span>
-                                     About Us
+                                     <a className='menu-ref' href="#about-us">About Us</a> 
                                 </span>
                             </Menu.Item>
                             <Menu.Item key='4'>
 
                                 <span>
-                                    Courses
+                                   <a className='menu-ref' href="#course-id">Courses</a>
                                 </span>
                             </Menu.Item>       
                             <Menu.Item key='5'>
 
                                 <span>
-                                    Teachers
+                                   <a className='menu-ref' href="#teacher-id">Teachers</a> 
                                 </span>
                             </Menu.Item>  
-                            <Menu.Item key='6'>
-
-                                <span>
-                                    Lịch Học
-                                </span>
-                            </Menu.Item>   
-                            <Menu.Item key='7'>
-
-                                <span>
-                                    Học Phí
-                                </span>
-                            </Menu.Item> 
                             <Menu.Item key='8'>
 
                                 <span>
-                                    Contact Us
+                                    <a className='menu-ref' href="#contact-id">Contact Us</a> 
                                 </span>
                             </Menu.Item>          
                         </Menu>

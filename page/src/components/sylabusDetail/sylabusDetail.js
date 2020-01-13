@@ -2,8 +2,11 @@ import React from 'react';
 import Header from '../header';
 import Footer from '../footer';
 import './sylabusDetail.scss';
+import SideMenu from '../sideMenu'
 const image = require('../../assets/detail.jpg');
-const imageHeader = require('../../assets/slide3.jpg')
+const imageHeader = require('../../assets/slide3.jpg');
+const lt = require('../../assets/lotrinh.png');
+const fee = require('../../assets/fee.png');
 const Item = function(props) {
     var style = {
         flexDirection: 'row',
@@ -54,8 +57,21 @@ class SylabusDetail extends React.Component{
         return(
             <div>
                 <Header/>
-                    <ItemHeader />
-                    {listItem}
+                <SideMenu />
+                <ItemHeader />
+                <div className='lt-layout'>
+                    <h2>Lộ Trình Học Tập</h2>
+                    <div>
+                        <img src={lt} alt=""/>
+                    </div>
+                </div>
+                {listItem}
+                <div className='fee-layout'>
+                    <h2>Học Phí</h2>
+                    <div>
+                        <img src={fee} alt=""/>
+                    </div>
+                </div>
                 <Footer />
             </div>
         )

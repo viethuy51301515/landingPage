@@ -1,0 +1,72 @@
+.side-menu-layout form{
+    // padding: 10px;
+    height: 125px;
+    width: 315px;
+    background: white;
+    // background: rgb(14, 14, 175);
+    position: absolute;
+    top: 50%;
+    position: fixed;
+    z-index: 99;
+    right: -260px;
+    box-shadow: 0 0 20px;
+    border-radius: 25px;
+    transition: all 0.5s ease-in-out;
+    display: flex;
+    .side-menu-1,.side-menu-3{
+        background: #f5f5f5;
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+        padding: 10px;
+        width: 10%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        h3{
+            font-size: 0.8rem;
+            text-align: center;
+        }
+    }
+    .side-menu-2{
+        width: 80%;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .side-menu-child{
+            position: relative;
+            input{
+                border: none;
+                outline: 0;
+                box-shadow: none;
+            }
+            label{
+                position: absolute;
+                top: 0;
+                left: 0;
+                pointer-events: none;
+                font-weight: bold;
+                transition: all 0.2s ease-in-out;
+            }
+            label.clicked{
+                font-size: 0.5rem;
+                font-weight: normal;
+                top: -10px;
+            }
+            div{
+                position: absolute;
+                border-bottom: 2px solid #25a3ff;
+                padding: 3px 0;
+                width: 100%;
+                transition: width .6s ease-in-out;
+            }
+        }
+    }
+    .side-menu-3{
+        border-top-left-radius: unset;
+        border-bottom-left-radius: unset;
+    }
+}
+.side-menu-layout form:hover{
+    right: 0;
+}

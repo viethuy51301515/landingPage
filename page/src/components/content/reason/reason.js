@@ -23,7 +23,7 @@ class Reason extends React.Component{
     }
     render(){
         return(
-            <div className='reason-layout'>
+            <div className='reason-layout' id='about-us'>
                 {/* <div className='reason-header'>
                     <h1 className='title'>Why Choose Us</h1>
                     <p>

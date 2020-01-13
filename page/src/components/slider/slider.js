@@ -17,9 +17,10 @@ class Slider extends React.Component{
         super(props);
     }
     render(){
-        const items = slide.map(item => (
-            <div>
-                <div className='slide-item' style={{backgroundImage:`url(${item.img})`}}>
+        const items = slide.map( (item,index) => (
+
+            <div key={index}>
+                <div  className='slide-item' style={{backgroundImage:`url(${item.img})`}}>
                 </div>
             </div>
         ))

@@ -30,7 +30,7 @@ class Sylabus extends React.Component{
     }
     render(){
         return(
-            <div className='sylabus-layout'> 
+            <div className='sylabus-layout' id='course-id'> 
                 <ItemHeader title='COURSE CATEGORIES' content='Lorem ipsum dolor sit amet consectetur adipisicing labore et dolore' />
                 <div className='sylabus-body'>
                     <ItemSylabus/>
