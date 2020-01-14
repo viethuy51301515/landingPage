@@ -32,12 +32,29 @@
 }
 .main-header{
     display: flex;
+    align-items: center;
+    position: relative;
     .logo{
-        width: 70%;
+        width: 30%;
+        padding: 10px 0px 10px 50px;
+        display: flex;
+        align-items: center;
+        img{
+            height: 80px;
+            width: auto;
+        }
+        h3{
+            color: red;
+            padding-left: 10px;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+        }
     }
     .menu-layout{
-        width: 30%;
+        width: 60%;
         float: right;
+        
         .menu{
             border-bottom: none;
             float: right;
@@ -50,4 +67,47 @@
 .menu-ref{
     text-decoration: none;
     color: unset;
+}
+.hamburger-button{
+    width: 28px;
+    right: 10%;
+    height: 20px;
+    position: absolute;
+    visibility: hidden;
+    cursor: pointer;
+    span{
+        background: blue;
+        position: absolute;
+        width: 100%;
+        height: 3px;
+    }
+    span:nth-child(1){
+        top: 0;
+    }
+    span:nth-child(2){
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    span:nth-child(3){
+        bottom: 0;
+    }
+}
+.nav-menu{
+    position: absolute;
+    top: 70%;
+    right: 0;
+    z-index: 100;
+    box-shadow: 0 0 20px;
+    border-radius: 25px;
+    visibility: hidden;
+    // transition: all 0.5s ease-in-out;
+}
+@media only screen and (max-width: 800px){
+    .hamburger-button{
+        visibility:visible ;
+    }
+    .menu-layout{
+        visibility: hidden;
+        display: none;
+    }
 }
