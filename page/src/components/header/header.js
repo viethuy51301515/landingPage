@@ -4,6 +4,8 @@ import './header.scss';
 import {Link} from 'react-router-dom';
 const {SubMenu} = Menu;
 const logoImage = require('../../assets/logo_red.png');
+// When the user scrolls the page, execute myFunction
+
 class Header extends React.Component{
     constructor(props){
         super(props);
@@ -66,7 +68,7 @@ class Header extends React.Component{
                         </li>
                     </ul>
                 </div>
-                <div className='main-header'>
+                <div className='main-header' id='main-header'>
                         <div className='logo'>
                             <img src={logoImage} alt=""/>
                             <h3>SEC</h3>
