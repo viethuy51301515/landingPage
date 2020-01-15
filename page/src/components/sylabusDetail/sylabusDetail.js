@@ -1,12 +1,12 @@
 import React from 'react';
 import Header from '../header';
 import Footer from '../footer';
+import {connect} from 'react-redux';
 import './sylabusDetail.scss';
 import SideMenu from '../sideMenu'
-const image = require('../../assets/detail.jpg');
-const imageHeader = require('../../assets/slide3.jpg');
-const lt = require('../../assets/lotrinh.png');
-const fee = require('../../assets/fee.png');
+
+
+
 const Item = function(props) {
     var style = {
         flexDirection: 'row',
@@ -14,51 +14,54 @@ const Item = function(props) {
     if(props.index % 2 == 0 ){
          style.flexDirection = 'row-reverse';
     }
-
+    const image = require(`../../assets/sylabus/${props.data.img}`);
     return(
         <div className='sylabus-detail-item'  style={style}>
             <img src={image} alt=""/>
             <div className='detail-content'>
                 <h2>
-                    Mục Tiêu
+                    {props.data.header}
                 </h2>
                 <p>
-                Tại chương trình học tiếng anh trẻ em YOLA DOLPHIN, 
-                học sinh được hòa mình vào môi trường tiếng Anh tự nhiên để khuyến khích niềm yêu thích học tập, 
-                xây dựng sự tự tin khi sử dụng tiếng Anh, đồng thời hướng đến việc giúp cho bé nuôi dưỡng những
-                 năng lực cần thiết để có thể phát triển tốt nhất cho cuộc sống hiện tại và tương lai.
+                    {props.data.info}
                 </p>
             </div>
         </div>
     )
 }
-const ItemHeader = function(){
+const ItemHeader = function(props){
+    const imageHeader = require(`../../assets/sylabus/${props.img}`);
     return(
         <div className='item-header-detail-layout' style={{backgroundImage:`url(${imageHeader})`}}>
-            <h1>Tiếng Anh Trẻ Em</h1>
-            <h3>HỌC TIẾNG ANH CHO BÉ 4,5 tuổi – 6 tuổi
-Tư duy Tiếng Anh tự nhiên như trẻ em bản xứ</h3>
         </div>
     )
 }
-class SylabusDetail extends React.Component{
+class SylabusDetailTemp extends React.Component{
     constructor(props){
         super(props);
     }
     render(){
-        var listItem = [];
-        for (let i = 1; i < 5; i++) {
-            listItem.push(
-                <Item index={i} ></Item>
-            )
+
+        const selectedData = this.props.data.find(item => item.id == this.props.match.params.id);
+        const lt = require(`../../assets/sylabus/${selectedData.time}`);
+        const fee = require(`../../assets/sylabus/${selectedData.fee}`);
+        console.log(selectedData.content);
+        var listItem = selectedData.content.map( (item,index) =>{
+            return <Item index={index} data={item}></Item>
+        })
+        console.log(listItem)
+        // for (let i = 1; i < 5; i++) {
+        //     listItem.push(
+        //         <Item index={i} ></Item>
+        //     )
             
-        }
+        // }
 
         return(
             <div>
                 <Header/>
                 <SideMenu />
-                <ItemHeader />
+                <ItemHeader img={selectedData.img}/>
                 <div className='lt-layout'>
                     <h2>Lộ Trình Học Tập</h2>
                     <div>
@@ -77,4 +80,8 @@ class SylabusDetail extends React.Component{
         )
     }
 }
+const mapStateToProps = (state) =>{
+    return {data:state.dataRe};
+}
+const SylabusDetail = connect(mapStateToProps,null)(SylabusDetailTemp);
 export default SylabusDetail;

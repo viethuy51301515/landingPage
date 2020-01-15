@@ -1,9 +1,13 @@
-import React from 'react';
+import React,{useEffect} from 'react';
+import {useDispatch} from 'react-redux';
 import logo from './logo.svg';
 import './App.css';
 import Layout from './components/layout';
 import SylabusDetail from './components/sylabusDetail';
 import {BrowserRouter,Route} from 'react-router-dom';
+
+
+
 function App() {
   return (
     <div className="App">

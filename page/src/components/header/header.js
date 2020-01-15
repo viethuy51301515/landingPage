@@ -71,7 +71,7 @@ class Header extends React.Component{
                 <div className='main-header' id='main-header'>
                         <div className='logo'>
                             <img src={logoImage} alt=""/>
-                            <h3>SEC</h3>
+                            <h3>SLC</h3>
                         </div>
                         <div className='menu-layout'>
                         <Menu mode='horizontal' className='menu' >

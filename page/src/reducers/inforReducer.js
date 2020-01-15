@@ -7,5 +7,6 @@ const inforReducer = (state=0,action) => {
         default:
             break;
     }
+    return state;
 }
 export default inforReducer;
