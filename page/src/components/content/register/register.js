@@ -1,7 +1,9 @@
 import React from 'react';
 import './register.scss';
-import {Form,Input,Icon,Row,Col,Button,Tooltip } from 'antd';
-class RegistrationForm extends React.Component {
+import {Form,Input,Icon,Row,Col,Button,Tooltip,notification } from 'antd';
+import { addData } from '../../../actions';
+import { connect } from 'react-redux';
+class RegistrationFormTemp extends React.Component {
     state = {
       confirmDirty: false,
       autoCompleteResult: [],
@@ -11,6 +13,17 @@ class RegistrationForm extends React.Component {
       e.preventDefault();
       this.props.form.validateFieldsAndScroll((err, values) => {
         if (!err) {
+          var data = {
+            name:values.nameContact,
+            phone:values.phoneContact,
+            email:values.emailContact
+          }
+          this.props.addNewInfor(data);
+          notification['success']({
+            message: 'Thông Báo',
+            description:"Cảm ơn bạn đã đăng ký, thông tin của bạn đã được gửi về bộ phận tuyển sinh."
+          });
+          this.props.form.resetFields();
           console.log('Received values of form: ', values);
         }
       });
@@ -58,15 +71,18 @@ class RegistrationForm extends React.Component {
             )}
               </Form.Item>
           <Form.Item >
-                {getFieldDecorator('nameContact', {
+                {getFieldDecorator('phoneContact', {
                     rules: [{ required: true, message: 'Vui lòng nhập số điện thoại' }],
                 })(
                 <Input placeholder='SỐ ĐIỆN THOẠI' id='phoneContact' />
                 )}
           </Form.Item>     
           <Form.Item >
+              {getFieldDecorator('emailContact', {
+                    rules: [{type:"email", message: 'Vui lòng nhập email' }],
+                })(
                 <Input placeholder='EMAIL' id='emailContact'/>
-         
+                )}
           </Form.Item>   
           <Form.Item>
             <Button type="primary" htmlType="submit">
@@ -77,6 +93,16 @@ class RegistrationForm extends React.Component {
       );
     }
   }
+  const mapDispatchToProps = (dispatch)=>{
+    return(
+      {
+        addNewInfor: (data) =>{
+          dispatch(addData(data));
+        }
+      }
+    )
+  }
+  const RegistrationForm = connect(null,mapDispatchToProps)(RegistrationFormTemp);
   const RegisForm = Form.create({name:"studentDetail"})(RegistrationForm);
 class Register extends React.Component{
     constructor(props){

@@ -2,62 +2,62 @@ import React from 'react';
 import './reason.scss';
 import {Icon} from 'antd';
 import ItemHeader from '../itemHeader'
+import { connect } from 'react-redux';
 const bgImg = require('../../../assets/reason.jpg');
 const imgDes = require("../../../assets/reason2.jpg")
 function ReasonItem(props){
+    const content = props.content.split('<br/>').map(item =>{
+        return (
+            <p>{item}</p>
+        )
+    })
+    console.log(content);
     return(
         <div className='reason-item'>
             
             <Icon type="plus-circle" style={{color:'white',fontSize: '50px'}} className='moreIcon'/>
-            <h2>Doi ngu giao vien dat trinh do quoc te</h2>
+            <h2>{props.title}</h2>
             <div className='reason-item-content'>
-                <h3 className='content-header'>Doi ngu giao vien dat trinh do quoc te</h3>
-                <p>Là một trong số ít tổ chức kết hợp giữa các giáo viên nước ngoài và Việt Nam tốt nghiệp từ các trường đại học lớn của thế giới giúp tối ưu hóa phương pháp dạy & học và truyền lửa cho học sinh</p>
+                <h3 className='content-header'>{props.title}</h3>
+                <p>{content}</p>
             </div>
         </div>
     )
 }
-class Reason extends React.Component{
+class ReasonTemp extends React.Component{
     constructor(props){
         super(props);
     }
     render(){
+        const listReason = this.props.data.map( item =>{
+            return(
+                <ReasonItem title={item.title} content={item.content}/>
+            )
+        })
         return(
             <div className='reason-layout' id='about-us'>
-                {/* <div className='reason-header'>
-                    <h1 className='title'>Why Choose Us</h1>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing labore et dolore magna
-                    </p>
-                </div> */}
-                <ItemHeader title='Why Choose Us' content='Lorem ipsum dolor sit amet consectetur adipisicing labore et dolore magna' />
+                <ItemHeader title='Tại Sao Là Chúng Tôi' content='Những Điều Khiến Bạn Chọn Chúng Tôi' />
                 <div className='reason-content'>
                     
                     <div className='listItem' style={{backgroundImage:`url(${bgImg})`}}>
                         <div className='overlay'></div>
-                        <ReasonItem />
-                        <ReasonItem />
-                        <ReasonItem />
-                        <ReasonItem />
-                        <ReasonItem />
+                        {listReason}
                     </div>
                     <div className='reason-description'>
                         <div>
                             <h2>
-                                KHAI PHÓNG
-                                SỨC MẠNH TIỀM NĂNG
+                                CHÚNG TÔI KHÁC BIỆT
                             </h2>
                             <p>
-                            YOLA luôn được biết đến là tổ chức giáo dục uy tín 
-                            đem lại sự cải thiện rõ rệt trong kĩ năng học thuật 
-                            và điểm số từ các bài thi quốc tế của học viên. 
-                            Những tiến bộ vượt trội của hơn 30,000 học viên YOLA 
-                            đã đào tạo và hàng loạt điểm thi cao hàng đầu Việt Nam 
-                            IELTS 8.5/9.0, TOEFL 119/120, SAT 1570/1600 cũng như tổng 
-                            giá trị học bổng hơn 220 tỷ đồng từ top 100 các trường 
-                            đại học hàng đầu thế giới dành riêng cấp cho học sinh của 
-                            YOLA chính là minh chứng cho độ hiệu quả của lộ trình 
-                            học thuật mà YOLA tâm huyết.
+                            Với quan điểm lấy học viên làm trung tâm, tôn trọng tính riêng biệt. 
+                            Sứ mệnh của SLC tạo động lực, khơi dậy niềm đam mê và xây dựng những bậc thang vững chắc 
+                            nhất trên con đường trinh phục khát vọng tương lai.<br/>
+                            Skyscraper là nhà: nơi tràn ngập tiếng cười, sự yêu thương và ấm áp. <br/>
+                            Skyscraper nâng niu những bước đi đầu tiên trên hành trình chinh phục đỉnh cao tri thức.<br/>
+                            Skyscraper nơi đam mê được đánh thức, khát vọng được bay cao.<br/>
+                            Skyscraper nơi học viên tự tin vững bước trong thế kỷ 21, thời đại 4.0<br/>
+
+
                             </p>
                         </div>
                         <img src={imgDes} alt=""/>
@@ -67,4 +67,10 @@ class Reason extends React.Component{
         )
     }
 }
+const mapStateToProps = (state)=>{
+    return({
+        data:state.whyusRe
+    })
+}
+const Reason = connect(mapStateToProps,null)(ReasonTemp);
 export default Reason;

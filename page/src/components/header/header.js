@@ -78,31 +78,31 @@ class Header extends React.Component{
                         <div className='menu-layout'>
                         <Menu mode='horizontal' className='menu' >
                             <Menu.Item key='1'>
-                                    <a href='/'>Home</a>
+                                    <a href='/'>Trang Chủ</a>
                             
                             </Menu.Item>
                             <Menu.Item key='3'>
 
                                 <span>
-                                     <a className='menu-ref' href="#about-us">About Us</a> 
+                                     <a className='menu-ref' href="#about-us">Về Chúng tôi</a> 
                                 </span>
                             </Menu.Item>
                             <Menu.Item key='4'>
 
                                 <span>
-                                   <a className='menu-ref' href="#course-id">Courses</a>
+                                   <a className='menu-ref' href="#course-id">Khóa Học</a>
                                 </span>
                             </Menu.Item>       
                             <Menu.Item key='5'>
 
                                 <span>
-                                   <a className='menu-ref' href="#teacher-id">Teachers</a> 
+                                   <a className='menu-ref' href="#teacher-id">Đội Ngũ Giáo Viên</a> 
                                 </span>
                             </Menu.Item>  
                             <Menu.Item key='8'>
 
                                 <span>
-                                    <a className='menu-ref' href="#contact-id">Contact Us</a> 
+                                    <a className='menu-ref' href="#contact-id">Liên Hệ</a> 
                                 </span>
                             </Menu.Item>          
                         </Menu>

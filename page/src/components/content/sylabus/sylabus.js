@@ -43,7 +43,7 @@ class SylabusTemp extends React.Component{
         });
         return(
             <div className='sylabus-layout' id='course-id'> 
-                <ItemHeader title='COURSE CATEGORIES' content='Lorem ipsum dolor sit amet consectetur adipisicing labore et dolore' />
+                <ItemHeader title='KHÓA HỌC' content='SLC CUNG CẤP ĐA DẠNG KHÓA HỌC CHO MỌI LỨA TUỔI' />
                 <div className='sylabus-body'>
                     {listItem}
                 </div>

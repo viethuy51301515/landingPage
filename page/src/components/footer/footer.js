@@ -9,7 +9,7 @@ class Footer extends React.Component{
         return(
             <div className='footer' id='contact-id'> 
                 <div className='footer-contact'>
-                    <h1>Contact</h1>
+                    <h1>Liên Hệ</h1>
                     <div className='contact-info'>
                         <h3>Lorem ipsum dolor sit amet consectetrttur adipisicing labore et trtdol</h3>
                         <h3>100 Madison St., Alexandria, VA, US</h3>
@@ -18,17 +18,30 @@ class Footer extends React.Component{
                     </div>
                 </div>
                 <div className='footer-about'>
-                    <h1>About</h1>
+                    <h1>Trung Tâm Anh Ngữ</h1>
                     <div className="about-info">
-                        <h3>
-                            About Us
-                        </h3>
-                        <h3>
-                            Teachers
-                        </h3>
-                        <h3>
-                            Syllabus
-                        </h3>
+                        <div>
+                            <p>
+                                Quận 3
+                            </p>
+                            <p>
+                                140/20 lương son bá chúc anh đài
+                            </p>
+                            <p>
+                                09983838383
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                Quận 10
+                            </p>
+                            <p>
+                                140/20 lương son bá chúc anh đài, 321, 321, 32
+                            </p>
+                            <p>
+                                099838383833213
+                            </p>
+                        </div>
                     </div>
                     
                 </div>

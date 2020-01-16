@@ -27,7 +27,7 @@
     height: 80vh;
 }
 
-.lt-layout,.fee-layout{
+.fee-layout{
     height: 80vh;
     // display: flex;
     // flex-direction: column;
@@ -56,4 +56,33 @@
         }
     }
 
+}
+.lt-layout{
+    // height: 80vh;
+    // display: flex;
+    // flex-direction: column;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 30px;
+    // justify-content: space-around;
+    h2{
+        font-weight: 600;
+        font-size: 2rem;
+        height: 20%;
+        margin-bottom: 0 !important;
+        // padding-bottom: 100px;
+        // overflow: hidden;
+    }
+    .lstImage-layout{
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        img{
+            height: 100%;
+            max-width: 100%;
+            width: auto;
+            display: block;
+            margin-top: 20px;
+        }
+    }
 }

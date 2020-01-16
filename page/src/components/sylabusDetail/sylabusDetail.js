@@ -43,11 +43,17 @@ class SylabusDetailTemp extends React.Component{
     render(){
 
         const selectedData = this.props.data.find(item => item.id == this.props.match.params.id);
-        const lt = require(`../../assets/sylabus/${selectedData.time}`);
+        // const lt = require(`../../assets/sylabus/${selectedData.time}`);
         const fee = require(`../../assets/sylabus/${selectedData.fee}`);
         console.log(selectedData.content);
         var listItem = selectedData.content.map( (item,index) =>{
             return <Item index={index} data={item}></Item>
+        })
+        var listImgLt = selectedData.time.map(item =>{
+            var temp = require(`../../assets/sylabus/${item.img}`);
+            return (
+                <img src={temp} alt=""/>
+            )
         })
         console.log(listItem)
         // for (let i = 1; i < 5; i++) {
@@ -64,8 +70,8 @@ class SylabusDetailTemp extends React.Component{
                 <ItemHeader img={selectedData.img}/>
                 <div className='lt-layout'>
                     <h2>Lộ Trình Học Tập</h2>
-                    <div>
-                        <img src={lt} alt=""/>
+                    <div className='lstImage-layout'>
+                        {listImgLt}
                     </div>
                 </div>
                 {listItem}

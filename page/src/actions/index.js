@@ -1,5 +1,6 @@
-export const addData = () =>{
+export const addData = (message) =>{
     return {
-        type:"addInfor"
+        type:"addInfor",
+        data:message
     }
 }

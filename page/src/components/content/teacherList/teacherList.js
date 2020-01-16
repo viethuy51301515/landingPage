@@ -1,13 +1,14 @@
 import React from 'react';
 import ItemHeader from '../itemHeader';
 import './teacherList.scss'
+const img = require("../../../assets/teacher/teacher.jpg")
 const Teacher = (props) =>{
     return(
         <div>
             <article className="card card--1">
             <div className="card__img"></div>
             <a href="#" className="card_link">
-                <div className="card__img--hover"></div>
+                <div className="card__img--hover" style={{backgroundImage:`url(${img})`}} ></div>
             </a>
             <div className="card__info">
                 <span className="card__category"> Teacher</span>

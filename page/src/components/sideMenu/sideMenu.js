@@ -1,15 +1,16 @@
 import React from 'react';
 import './sideMenu.scss';
 import {Icon,Button,notification} from 'antd';
-import {useSelector,useDispatch} from 'react-redux';
+import {useSelector,useDispatch,connect} from 'react-redux';
 import {todosRef} from '../../firebase';
+import {addData} from '../../actions/index';
 const openNotificationWithIcon = (type,content) => {
     notification[type]({
       message: 'Thông Báo',
       description:content
     });
   };
-class SideMenu extends React.Component{
+class SideMenuTemp extends React.Component{
     constructor(props){
         super(props);
         this.nameAction = this.nameAction.bind(this);
@@ -58,7 +59,8 @@ class SideMenu extends React.Component{
             openNotificationWithIcon("warning","Vui lòng nhập số điện thoại")
             return;
         }
-        todosRef.push().set(this.state);
+        this.props.addNewInfor(this.state)
+        // todosRef.push().set(this.state);
         this.setState({
             name:"",
             phone:"",
@@ -102,5 +104,12 @@ class SideMenu extends React.Component{
         )
     }
 }
-
+const mapDispatchToProps = (dispatch)=>{
+    return{
+        addNewInfor: (data)=>{
+            dispatch(addData(data));
+        }
+    }
+}
+const SideMenu = connect(null,mapDispatchToProps)(SideMenuTemp);
 export default SideMenu;

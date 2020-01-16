@@ -11,5 +11,5 @@ const config = {
 }
 firebase.initializeApp(config);
 const databaseRef = firebase.database().ref();
-export const todosRef = databaseRef.child("englishc-35fa0")
+export const todosRef = databaseRef.child("parent-info")
 

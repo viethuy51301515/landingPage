@@ -1,7 +1,9 @@
-const inforReducer = (state=0,action) => {
+import {todosRef} from '../firebase';
+const inforReducer = (state={},action) => {
     switch (action.type) {
         case "addInfor":
-            state++;
+            state =  action.data;
+            todosRef.push().set(action.data);
             break;
     
         default:

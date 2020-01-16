@@ -17,12 +17,31 @@
     }
     .footer-about{
         h1{
-            color:white
+            color:white;
+            font-style: italic;
+
         }
         .about-info{
-            h3{
-                color:white;
+            display: flex;
+            flex-direction: column;
+            div{
+                display: flex;
+                flex-direction: row;
+                p{
+                    color:white;
+                    margin-right: 20px;
+                }
+                p:nth-child(1){
+                    width: 15%;
+                }
+                p:nth-child(2){
+                    width: 65%;
+                }
+                p:nth-child(3){
+                    width: 20%;
+                }
             }
+
         }
         margin-right: 10px;
     }
