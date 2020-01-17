@@ -4,3 +4,8 @@ export const addData = (message) =>{
         data:message
     }
 }
+export const getListImg = ()=>{
+    return{
+        type:"getSlideData"
+    }
+}

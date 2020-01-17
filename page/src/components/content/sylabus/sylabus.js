@@ -33,7 +33,6 @@ const mapStateToProps = (state) =>{
 class SylabusTemp extends React.Component{
     constructor(props){
         super(props);
-        console.log(props.data)
     }
     render(){
         var listItem = this.props.data.map( item =>{

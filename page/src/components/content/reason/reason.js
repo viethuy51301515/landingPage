@@ -11,11 +11,10 @@ function ReasonItem(props){
             <p>{item}</p>
         )
     })
-    console.log(content);
     return(
         <div className='reason-item'>
             
-            <Icon type="plus-circle" style={{color:'white',fontSize: '50px'}} className='moreIcon'/>
+            <Icon key={props.index} type="plus-circle" style={{color:'white',fontSize: '50px'}} className='moreIcon'/>
             <h2>{props.title}</h2>
             <div className='reason-item-content'>
                 <h3 className='content-header'>{props.title}</h3>
@@ -29,9 +28,9 @@ class ReasonTemp extends React.Component{
         super(props);
     }
     render(){
-        const listReason = this.props.data.map( item =>{
+        const listReason = this.props.data.map( (item,index) =>{
             return(
-                <ReasonItem title={item.title} content={item.content}/>
+                <ReasonItem title={item.title} content={item.content} key={index}/>
             )
         })
         return(

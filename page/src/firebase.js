@@ -11,5 +11,7 @@ const config = {
 }
 firebase.initializeApp(config);
 const databaseRef = firebase.database().ref();
-export const todosRef = databaseRef.child("parent-info")
+const store = firebase.storage().ref();
+export const todosRef = databaseRef.child("parent-info");
+export const storeData = store;
 
