@@ -11,9 +11,9 @@ class Footer extends React.Component{
                 <div className='footer-contact'>
                     <h1>Liên Hệ</h1>
                     <div className='contact-info'>
-                        <h3>Lorem ipsum dolor sit amet consectetrttur adipisicing labore et trtdol</h3>
-                        <h3>100 Madison St., Alexandria, VA, US</h3>
-                        <h3>123 456-7890</h3>   
+                        <h3>84B Hồ Văn Long</h3>
+                        <h3>Bình Hưng Hòa B, Bình Tân, Hồ Chí Minh</h3>
+                        <h3>0286 266 9933</h3>   
                         <h3>info@example.com</h3>   
                     </div>
                 </div>
@@ -28,7 +28,7 @@ class Footer extends React.Component{
                                 140/20 lương son bá chúc anh đài
                             </p>
                             <p>
-                                09983838383
+                                01264895603
                             </p>
                         </div>
                         <div>
@@ -39,7 +39,7 @@ class Footer extends React.Component{
                                 140/20 lương son bá chúc anh đài, 321, 321, 32
                             </p>
                             <p>
-                                099838383833213
+                            01264895603
                             </p>
                         </div>
                     </div>
@@ -47,8 +47,8 @@ class Footer extends React.Component{
                 </div>
                 <div className="social-contact">
                     <h1>Follow us</h1>
-                    <img src={require('../../assets/facebook.png')} alt=""/>
-                    <img src={require('../../assets/youtube.png')} alt=""/>
+                    <a><img src={require('../../assets/facebook.png')} alt=""/></a>
+                    <a><img src={require('../../assets/youtube.png')} alt=""/></a>
                 </div>
             </div>
         )
