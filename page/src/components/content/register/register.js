@@ -3,6 +3,7 @@ import './register.scss';
 import {Form,Input,Icon,Row,Col,Button,Tooltip,notification } from 'antd';
 import { addData } from '../../../actions';
 import { connect } from 'react-redux';
+import $ from 'jquery';
 class RegistrationFormTemp extends React.Component {
     state = {
       confirmDirty: false,
@@ -13,12 +14,24 @@ class RegistrationFormTemp extends React.Component {
       e.preventDefault();
       this.props.form.validateFieldsAndScroll((err, values) => {
         if (!err) {
+          var date = new Date();
           var data = {
             name:values.nameContact,
             phone:values.phoneContact,
-            email:values.emailContact
+            email:values.emailContact,
+            date:  date.getDate() + '/'+date.getMonth()+1 + '/' +  date.getFullYear()+" "+date.getHours()+":"+date.getMinutes()
           }
           this.props.addNewInfor(data);
+          $.ajax({
+            type : 'GET', 
+            url : 'https://script.google.com/macros/s/AKfycbxsvZRW7nN5WM2m5iY1gDZWDVmBK63A82aId9UEXf8a95gyUQA/exec',
+            dataType:'json',
+            crossDomain : true,
+            data : data,
+            success : function(data)
+            { 
+            }
+        });
           notification['success']({
             message: 'Thông Báo',
             description:"Cảm ơn bạn đã đăng ký, thông tin của bạn đã được gửi về bộ phận tuyển sinh."

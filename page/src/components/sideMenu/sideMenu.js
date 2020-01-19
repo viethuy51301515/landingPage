@@ -4,6 +4,7 @@ import {Icon,Button,notification} from 'antd';
 import {useSelector,useDispatch,connect} from 'react-redux';
 import {todosRef} from '../../firebase';
 import {addData} from '../../actions/index';
+import $ from 'jquery';
 const openNotificationWithIcon = (type,content) => {
     notification[type]({
       message: 'Thông Báo',
@@ -61,18 +62,31 @@ class SideMenuTemp extends React.Component{
         }
         this.props.addNewInfor(this.state)
         // todosRef.push().set(this.state);
+        var data = this.state;
+        var date = new Date();
+        data['date'] = date.getDate() + '/'+date.getMonth()+1 + '/' +  date.getFullYear() +" "+date.getHours()+":"+date.getMinutes();
         this.setState({
             name:"",
             phone:"",
             email:""
-        })
+        });
+        $.ajax({
+            type : 'GET', 
+            url : 'https://script.google.com/macros/s/AKfycbxsvZRW7nN5WM2m5iY1gDZWDVmBK63A82aId9UEXf8a95gyUQA/exec',
+            dataType:'json',
+            crossDomain : true,
+            data : data,
+            success : function(data)
+            { 
+            }
+        });
         openNotificationWithIcon('success',"Cảm ơn bạn đã đăng ký, thông tin của bạn đã được gửi về bộ phận tuyển sinh.");
         // document.getElementsByClassName("side-menu-layout")[0].style.right = '-260px';
     }
     render(){
         return(
             <div className='side-menu-layout'>
-                <form  method='post' enctype="text/plain" id='form-id'>
+                <form  id='form-id'>
                     <div className='side-menu-1'>
                         <Icon type="edit" theme="twoTone" />
                         <h3>Nhận Thông Tin</h3>
@@ -80,17 +94,17 @@ class SideMenuTemp extends React.Component{
                     <div className='side-menu-2'>
                         
                         <div className='side-menu-child'>
-                            <input id='name' key='text' value={this.state.name} onChange={() => this.nameAction('name')} />
+                            <input id='name' name='name' key='text' value={this.state.name} onChange={() => this.nameAction('name')} />
                             <label id='name-label'>Tên của bạn ?</label>
                             <div></div>
                         </div>
                         <div className='side-menu-child'>
-                            <input id='phone' value={this.state.phone} onChange={() => this.nameAction('phone')} />
+                            <input id='phone' name='phone' value={this.state.phone} onChange={() => this.nameAction('phone')} />
                             <label id='phone-label'>Số Điện Thoại Của Bạn?</label>
                             <div></div>
                         </div>
                         <div className='side-menu-child'>
-                            <input id='email' value={this.state.email} onChange={() => this.nameAction('email')} />
+                            <input id='email' name='email' value={this.state.email} onChange={() => this.nameAction('email')} />
                             <label id='email-label'>Email Của Bạn ?</label>
                             <div></div>
                         </div>
