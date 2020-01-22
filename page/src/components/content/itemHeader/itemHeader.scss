@@ -2,7 +2,7 @@
     text-transform: uppercase;
     line-height: 1.1rem;
     font-weight: 600;
-    font-size: 1.2rem;
+    font-size: 1.2;
     margin-bottom: 10px;
     font-family: 'Roboto slab', sans-serif;
     
@@ -25,5 +25,10 @@
     p{
         text-align: center;
         margin-bottom: 80px;
+    }
+}
+@media all and ( max-width:500px ){
+    .reason-header{
+        font-size: 1em;
     }
 }

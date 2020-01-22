@@ -17,7 +17,9 @@ const Item = function(props) {
     const image = require(`../../assets/sylabus/${props.data.img}`);
     return(
         <div className='sylabus-detail-item'  style={style}>
-            <img src={image} alt=""/>
+            <div className='img-item-detail'>
+                <img src={image} alt=""/>
+            </div>
             <div className='detail-content'>
                 <h2>
                     {props.data.header}

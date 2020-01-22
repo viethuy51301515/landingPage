@@ -5,3 +5,6 @@
   box-sizing: content-box;
   font-family: 'Open Sans', sans-serif;
 }
+.App{
+  overflow: hidden;
+}

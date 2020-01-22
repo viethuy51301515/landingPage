@@ -1,5 +1,5 @@
 import React from 'react';
-import {Menu,Icon} from 'antd';
+import {Menu,Icon,Drawer} from 'antd';
 import './header.scss';
 import {Link} from 'react-router-dom';
 const {SubMenu} = Menu;
@@ -10,22 +10,22 @@ class Header extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            isSideMenuToogle : false
+            isSideMenuToogle : false,
+            drawerVisible:false
         }
         this.changeSite = this.changeSite.bind(this);
         this.toogleSideMenu = this.toogleSideMenu.bind(this);
+        this.onClose = this.onClose.bind(this);
 
     }
-    toogleSideMenu(){
-        var sideMenu = document.getElementById("nav-menu");
-        if(this.state.isSideMenuToogle){
-            sideMenu.style.visibility = 'hidden';
-        }
-        else{
-            sideMenu.style.visibility = 'visible';
-        }
+    onClose = () => {
         this.setState({
-            isSideMenuToogle : !this.state.isSideMenuToogle
+            drawerVisible: false,
+        });
+      };
+    toogleSideMenu(){
+        this.setState({
+            drawerVisible:true
         })
     }
     changeSite(type){
@@ -112,38 +112,46 @@ class Header extends React.Component{
                             <span></span>
                             <span></span>
                         </div> 
-                        <div className='nav-menu' id='nav-menu'>
-                        <Menu mode='vertical' className='menu-side-bar' >
-                            <Menu.Item key='1'>
-                                    <a href='/'>Home</a>
-                            
-                            </Menu.Item>
-                            <Menu.Item key='3'>
+                        {/* <div className='nav-menu' id='nav-menu'> */}
+                            <Drawer
+                                title=" "
+                                placement="right"
+                                closable={false}
+                                onClose={this.onClose}
+                                visible={this.state.drawerVisible}
+                            >
+                                <Menu mode='vertical' className='menu-side-bar' >
+                                    <Menu.Item key='1'>
+                                            <a href='/'>Home</a>
+                                    
+                                    </Menu.Item>
+                                    <Menu.Item key='3'>
 
-                                <span>
-                                     <a className='menu-ref' href="#about-us">About Us</a> 
-                                </span>
-                            </Menu.Item>
-                            <Menu.Item key='4'>
+                                        <span>
+                                            <a className='menu-ref' href="#about-us">About Us</a> 
+                                        </span>
+                                    </Menu.Item>
+                                    <Menu.Item key='4'>
 
-                                <span>
-                                   <a className='menu-ref' href="#course-id">Courses</a>
-                                </span>
-                            </Menu.Item>       
-                            <Menu.Item key='5'>
+                                        <span>
+                                        <a className='menu-ref' href="#course-id">Courses</a>
+                                        </span>
+                                    </Menu.Item>       
+                                    <Menu.Item key='5'>
 
-                                <span>
-                                   <a className='menu-ref' href="#teacher-id">Teachers</a> 
-                                </span>
-                            </Menu.Item>  
-                            <Menu.Item key='8'>
+                                        <span>
+                                        <a className='menu-ref' href="#teacher-id">Teachers</a> 
+                                        </span>
+                                    </Menu.Item>  
+                                    <Menu.Item key='8'>
 
-                                <span>
-                                    <a className='menu-ref' href="#contact-id">Contact Us</a> 
-                                </span>
-                            </Menu.Item>          
-                        </Menu>
-                        </div>
+                                        <span>
+                                            <a className='menu-ref' href="#contact-id">Contact Us</a> 
+                                        </span>
+                                    </Menu.Item>          
+                                </Menu>
+                            </Drawer>
+                        {/* </div> */}
                 </div>
 
             </div>

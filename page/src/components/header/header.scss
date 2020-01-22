@@ -71,13 +71,14 @@
 }
 .hamburger-button{
     width: 28px;
-    right: 10%;
+    right: 10px;
+    transform: translateX(-50%);
     height: 20px;
     position: absolute;
     visibility: hidden;
     cursor: pointer;
     span{
-        background: blue;
+        background: #b31c25;
         position: absolute;
         width: 100%;
         height: 3px;
