@@ -14,7 +14,7 @@ function ReasonItem(props){
     return(
         <div className='reason-item'>
             
-            <Icon key={props.index} type="plus-circle" style={{color:'white',fontSize: '50px'}} className='moreIcon'/>
+            <Icon key={props.index}  type="eye"  style={{color:'white',fontSize: '50px'}} className='moreIcon'/>
             <h2>{props.title}</h2>
             <div className='reason-item-content'>
                 <h3 className='content-header'>{props.title}</h3>
@@ -44,7 +44,7 @@ class ReasonTemp extends React.Component{
                     </div>
                     <div className='reason-description'>
                         <div>
-                            <h2>
+                            <h2 className='sub-reason'>
                                 CHÚNG TÔI KHÁC BIỆT
                             </h2>
                             <p>

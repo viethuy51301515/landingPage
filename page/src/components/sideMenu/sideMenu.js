@@ -88,7 +88,7 @@ class SideMenuTemp extends React.Component{
             <div className='side-menu-layout'>
                 <form  id='form-id'>
                     <div className='side-menu-1'>
-                        <Icon type="edit" theme="twoTone" />
+                        <Icon type="edit" style={{color:'white'}}/>
                         <h3>Nhận Thông Tin</h3>
                     </div>
                     <div className='side-menu-2'>
@@ -110,7 +110,7 @@ class SideMenuTemp extends React.Component{
                         </div>
                     </div>
                     <div className='side-menu-3' onClick={this.submit}>
-                        <Icon type="check-circle" theme="twoTone" />
+                        <Icon type="check-circle" />
                         <h3>Gửi</h3>
                     </div>
                 </form>

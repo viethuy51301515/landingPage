@@ -19,7 +19,7 @@ const ItemSylabus = function(props) {
                     {props.data.subTitle}
                 </p>
                 <Link to={`detail/${props.data.id}`}>
-                    <Button type='primary' className='buttonReadMore' style={{backgroundColor:'#f2552c',border:'none'}}>
+                    <Button type='primary' className='buttonReadMore' style={{backgroundColor:'#b31c25',border:'none'}}>
                         Read More
                     </Button>
                 </Link>
