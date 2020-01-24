@@ -11,6 +11,7 @@ class Footer extends React.Component{
                 <div className='footer-contact'>
                     <h1>Liên Hệ</h1>
                     <div className='contact-info'>
+                        <h3>Anh Ngữ Skyscraper</h3>
                         <h3>84B Hồ Văn Long</h3>
                         <h3>Bình Hưng Hòa B, Bình Tân, Hồ Chí Minh</h3>
                         <h3>0286 266 9933</h3>   
