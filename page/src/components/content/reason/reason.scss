@@ -40,7 +40,7 @@
         background-repeat: no-repeat;
         background-size: cover;
         display: grid;
-        grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+        grid-template-columns: repeat(auto-fit,minmax(20vw,1fr));
         grid-auto-rows: minmax(400px,auto);
         position: relative;
         min-height: 30vh;
@@ -136,7 +136,13 @@
     .menu{
         visibility: hidden;
     }
+    .listItem{
+        grid-template-columns: 1fr !important;
+    }
     // .listItem{
     //     grid-template-columns: 1;
     // }
+}
+@media only screen and (max-width : 600px){
+
 }
