@@ -6,7 +6,7 @@ import Layout from './components/layout';
 import SylabusDetail from './components/sylabusDetail';
 import {BrowserRouter,Route} from 'react-router-dom';
 import EventList from './components/event'
-
+import EventDetail from './components/event/eventDetail'
 
 function App() {
   return (
@@ -15,6 +15,7 @@ function App() {
         <Route exact path='/' component={Layout}></Route>
         <Route path='/detail/:id' component={SylabusDetail}/>
         <Route path='/event' component={EventList}/>
+        <Route path='/eventDetail/:id' component={EventDetail}></Route>
         </BrowserRouter>
     </div>
   );

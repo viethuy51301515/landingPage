@@ -5,6 +5,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faCalendarAlt,faClock} from '@fortawesome/free-solid-svg-icons'
 import './event.scss'
 import {useDispatch,useSelector} from 'react-redux';
+import {Link} from 'react-router-dom';
 const ItemHeader = function(props){
     const imageHeader = require(`../../assets/sylabus/${props.img}`);
     return(
@@ -15,6 +16,7 @@ const ItemHeader = function(props){
 const EventItem = (props)=>{
     const imageHeader = require(`../../assets/sylabus/${props.img}`);
     return(
+        <Link to={'/eventDetail/123'}>
         <a className='eventItem'>
             <h2>GIÁO DỤC TRỰC TUYẾN LÀ GIẢI PHÁP TỐI ƯU CHO HỌC SINH ĐỐI PHÓ DỊCH BỆNH?</h2>
             <div className='info'>
@@ -35,6 +37,7 @@ const EventItem = (props)=>{
                 <img src={imageHeader} alt=""/>
             </div>
         </a>
+        </Link>
     )
 }
 function EventList(props){
