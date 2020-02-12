@@ -5,7 +5,7 @@ import './App.css';
 import Layout from './components/layout';
 import SylabusDetail from './components/sylabusDetail';
 import {BrowserRouter,Route} from 'react-router-dom';
-
+import EventList from './components/event'
 
 
 function App() {
@@ -14,6 +14,7 @@ function App() {
         <BrowserRouter>
         <Route exact path='/' component={Layout}></Route>
         <Route path='/detail/:id' component={SylabusDetail}/>
+        <Route path='/event' component={EventList}/>
         </BrowserRouter>
     </div>
   );
