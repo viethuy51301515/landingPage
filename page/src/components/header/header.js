@@ -92,7 +92,16 @@ class Header extends React.Component{
                                 <span>
                                    <a className='menu-ref' href="#course-id">Khóa Học</a>
                                 </span>
-                            </Menu.Item>       
+                            </Menu.Item>     
+                            <Menu.Item key='6'>
+                                <span>
+                                   
+                                        <a className='menu-ref' href="#event-id">
+                                        <Link to={'/event'}>Event
+                                        </Link></a>
+                               
+                                </span>
+                            </Menu.Item>   
                             <Menu.Item key='5'>
 
                                 <span>
@@ -136,7 +145,12 @@ class Header extends React.Component{
                                         <span>
                                         <a className='menu-ref' href="#course-id">Courses</a>
                                         </span>
-                                    </Menu.Item>       
+                                    </Menu.Item>    
+                                    <Menu.Item key='6'>
+                                        <span>
+                                            <a className='menu-ref' href="#event-id">Event</a>
+                                        </span>
+                                    </Menu.Item>    
                                     <Menu.Item key='5'>
 
                                         <span>
