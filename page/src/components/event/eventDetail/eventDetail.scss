@@ -1,0 +1,27 @@
+.event-content{
+    width: 90%;
+    margin: 50px auto;
+    display: flex;
+    .event{
+        width: 70%;;
+        ol{
+            margin-left: 30px;
+        }
+        ul{
+            margin-left: 30px;
+        }
+        h1{
+            font-weight: 700;
+            font-size: 2rem;
+        }
+        h2{
+            font-size: 1.5rem;
+        }
+    }
+    .related{
+        margin-top: 100px;
+        padding-left: 20px;
+        width: 30%;
+    }
+
+}

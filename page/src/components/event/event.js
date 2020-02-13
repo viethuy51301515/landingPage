@@ -6,6 +6,7 @@ import {faCalendarAlt,faClock} from '@fortawesome/free-solid-svg-icons'
 import './event.scss'
 import {useDispatch,useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
+import {storeData} from '../../firebase'
 const ItemHeader = function(props){
     const imageHeader = require(`../../assets/sylabus/${props.img}`);
     return(
@@ -16,8 +17,8 @@ const ItemHeader = function(props){
 const EventItem = (props)=>{
     const imageHeader = require(`../../assets/sylabus/${props.img}`);
     return(
-        <Link to={'/eventDetail/123'}>
-        <a className='eventItem'>
+        <Link to={'/eventDetail/123'} className='eventItem'>
+        {/* <a className='eventItem'> */}
             <h2>GIÁO DỤC TRỰC TUYẾN LÀ GIẢI PHÁP TỐI ƯU CHO HỌC SINH ĐỐI PHÓ DỊCH BỆNH?</h2>
             <div className='info'>
                 <ul>
@@ -36,7 +37,7 @@ const EventItem = (props)=>{
             <div className='img-div'>
                 <img src={imageHeader} alt=""/>
             </div>
-        </a>
+        {/* </a> */}
         </Link>
     )
 }

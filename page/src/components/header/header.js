@@ -95,11 +95,9 @@ class Header extends React.Component{
                             </Menu.Item>     
                             <Menu.Item key='6'>
                                 <span>
-                                   
-                                        <a className='menu-ref' href="#event-id">
-                                        <Link to={'/event'}>Event
-                                        </Link></a>
-                               
+                                        {/* <a  href="#event-id"> */}
+                                        <Link className='menu-ref' to={'/event'}>Event
+                                        </Link>
                                 </span>
                             </Menu.Item>   
                             <Menu.Item key='5'>
