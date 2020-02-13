@@ -6,7 +6,8 @@ import {faCalendarAlt,faClock} from '@fortawesome/free-solid-svg-icons'
 import './event.scss'
 import {useDispatch,useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
-import {storeData} from '../../firebase'
+import {eventRef} from '../../firebase';
+import {useEffect,useState} from 'react'
 const ItemHeader = function(props){
     const imageHeader = require(`../../assets/sylabus/${props.img}`);
     return(
@@ -44,6 +45,9 @@ const EventItem = (props)=>{
 function EventList(props){
     const data = useSelector(state => state.dataRe);
     console.log(data[0].img);
+    useEffect(()=>{
+        console.log(eventRef);
+    },[]);
     return(
         <div className='event-list'>
             <Header/>

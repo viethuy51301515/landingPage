@@ -9,3 +9,8 @@ export const getListImg = ()=>{
         type:"getSlideData"
     }
 }
+export const getListEvent = ()=>{
+    return{
+        type:"getListEvent"
+    }
+}
