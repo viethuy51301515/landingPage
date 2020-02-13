@@ -5,15 +5,22 @@ import SideMenu from '../../sideMenu';
 import {useSelector} from 'react-redux';
 import './eventDetail.scss';
 import {Link} from 'react-router-dom';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faCalendarAlt,faClock} from '@fortawesome/free-solid-svg-icons'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {useState,useEffect} from 'react';
+import {faCalendarAlt,faClock} from '@fortawesome/free-solid-svg-icons';
+import {eventRef} from '../../../firebase';
 marked.setOptions({
     breaks: true,
   });
 const ItemHeader = function(props){
-    const imageHeader = require(`../../../assets/sylabus/${props.img}`);
+    var style ={};
+    if(props != null && props.image != null){
+        style= {
+            backgroundImage:`url(${props.image})`
+        }
+    }
     return(
-        <div className='item-header-detail-layout' style={{backgroundImage:`url(${imageHeader})`}}>
+        <div className='item-header-detail-layout' style={style}>
         </div>
     )
 }
@@ -46,7 +53,7 @@ const RelatedItem = function(props) {
         <EventItem></EventItem>
     )
 }
-const EventDetail = ()=>{
+const EventDetail = (props)=>{
     const test = `Giáo dục trực tuyến là giải pháp tối ưu cho học sinh đối phó dịch bệnh?
 ========================
 [Marked] lets you convert [Markdown] into HTML.  Markdown is a simple text format whose goal is to be very easy to read and write, even when not converted to HTML.  This demo page will let you type anything you like and see how it gets converted.  Live.  No more waiting around.
@@ -85,15 +92,23 @@ Ready to start writing?  Either start changing stuff on the left or
 [Markdown]: http://daringfireball.net/projects/markdown/
 ![](https://goo.gl/Umyytc)
     `;
-    const data = useSelector(state=>state.dataRe);
+    const [data,setData] = useState({});
+    const [content,setContent] = useState();
+    useEffect(()=>{
+        eventRef.child(props.match.params.id).once('value').then(snapshot =>{
+            var item = snapshot.val();
+            setData(item);
+            setContent(`${item.date}`+marked(item.content));
+        })
+    });
     return(
         <div >
             <Header/>
             <SideMenu />
-            <ItemHeader img={data[0].img}/>
+            <ItemHeader image={data.image}/>
             <div className='event-content'>
 
-                <div className='event' dangerouslySetInnerHTML={{__html:'<p>10/09/1995</p>'+marked(test)}}>
+                <div className='event' dangerouslySetInnerHTML={{__html:content}}>
 
                 </div>
                 <div className='related'>

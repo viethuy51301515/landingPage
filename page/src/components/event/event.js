@@ -16,27 +16,26 @@ const ItemHeader = function(props){
     )
 }
 const EventItem = (props)=>{
-    const imageHeader = require(`../../assets/sylabus/${props.img}`);
     return(
-        <Link to={'/eventDetail/123'} className='eventItem'>
+        <Link to={`/eventDetail/${props.keys}`} className='eventItem'>
         {/* <a className='eventItem'> */}
-            <h2>GIÁO DỤC TRỰC TUYẾN LÀ GIẢI PHÁP TỐI ƯU CHO HỌC SINH ĐỐI PHÓ DỊCH BỆNH?</h2>
+    <h2>{props.title}</h2>
             <div className='info'>
                 <ul>
                     <li>
                         <FontAwesomeIcon icon={faCalendarAlt}></FontAwesomeIcon>
-                        <span>20/10/2020</span>
+    <span>{props.date}</span>
                     </li>
                
                     <li>
                         <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
-                        <span>11:10</span>
+                        <span>{props.date}</span>
                     </li>
                    
                 </ul>
             </div>
             <div className='img-div'>
-                <img src={imageHeader} alt=""/>
+                <img src={props.image} alt=""/>
             </div>
         {/* </a> */}
         </Link>
@@ -44,20 +43,39 @@ const EventItem = (props)=>{
 }
 function EventList(props){
     const data = useSelector(state => state.dataRe);
+    const [listEvent,setListEvent] = useState([]);
     console.log(data[0].img);
     useEffect(()=>{
-        console.log(eventRef);
+        eventRef.once('value',function(snapshot) {
+            var list = [];
+            snapshot.forEach(function(childSnapShot) {
+                var element = childSnapShot.val();
+                console.log(childSnapShot.key)
+                list.push(<EventItem key={element.key} title={element.title} date={element.date} image={element.image} keys={childSnapShot.key}/> );
+            })
+            setListEvent(list);
+            console.log(list);
+        })
     },[]);
+
     return(
         <div className='event-list'>
             <Header/>
             <SideMenu />
             <ItemHeader img={data[0].img}/>
             <div className='event-item-list'>
+                {/* {
+                    {
+                    listEvent.forEach(element => {
+                        <EventItem title={element.title} date={element.date}/> 
+                    })
+                    }
+                } */}
+                {/* <EventItem img={data[0].img}/> 
                 <EventItem img={data[0].img}/> 
                 <EventItem img={data[0].img}/> 
-                <EventItem img={data[0].img}/> 
-                <EventItem img={data[0].img}/> 
+                <EventItem img={data[0].img}/>  */}
+                {listEvent}
             </div>
   
         </div>
