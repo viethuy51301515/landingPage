@@ -98,7 +98,7 @@ Ready to start writing?  Either start changing stuff on the left or
         eventRef.child(props.match.params.id).once('value').then(snapshot =>{
             var item = snapshot.val();
             setData(item);
-            setContent(`${item.date}`+marked(item.content));
+            setContent(`${item.date}`+marked(test));
         })
     });
     return(
