@@ -7,7 +7,7 @@
     
 }
 .eventItem{
-    margin: auto;
+    // margin: auto;
     padding: 20px;
     h2{
         color:#b31c25;
@@ -25,13 +25,13 @@
         color: rgb(214, 5, 5);
     }
     .img-div{
-        // width: 40%;
-        // height:300px;
+        width: 100%;
+        height:300px;
         margin-right: 5px;
         img{
-            height: auto;
+            height: 100%;
             max-width: 100%;
-            min-height: 100%;
+            max-width: auto;
         }
     }
     .info{

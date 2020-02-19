@@ -8,6 +8,8 @@ import {useDispatch,useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {eventRef} from '../../firebase';
 import {useEffect,useState} from 'react'
+import {Tabs} from 'antd';
+const {TabPane} = Tabs;
 const ItemHeader = function(props){
     const imageHeader = require(`../../assets/sylabus/${props.img}`);
     return(
@@ -24,14 +26,16 @@ const EventItem = (props)=>{
                 <ul>
                     <li>
                         <FontAwesomeIcon icon={faCalendarAlt}></FontAwesomeIcon>
-    <span>{props.date}</span>
+                        <span>{props.date.split(" ")[0]}</span>
                     </li>
                
                     <li>
                         <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
-                        <span>{props.date}</span>
+                        <span>{props.date.split(" ")[1]}</span>
                     </li>
-                   
+                    <li>
+                        <span>{props.type == 'sk' ? "Sự Kiện" : "Tin Tức"}</span>
+                    </li>
                 </ul>
             </div>
             <div className='img-div'>
@@ -44,17 +48,28 @@ const EventItem = (props)=>{
 function EventList(props){
     const data = useSelector(state => state.dataRe);
     const [listEvent,setListEvent] = useState([]);
+    const [listNews,setListNews] = useState([]);
+    const [listAll,setListAll] = useState([]);
     console.log(data[0].img);
     useEffect(()=>{
         eventRef.once('value',function(snapshot) {
-            var list = [];
+            var listAll = [];
+            var listEvent = [];
+            var listNews = [];
             snapshot.forEach(function(childSnapShot) {
                 var element = childSnapShot.val();
                 console.log(childSnapShot.key)
-                list.push(<EventItem key={element.key} title={element.title} date={element.date} image={element.image} keys={childSnapShot.key}/> );
+                listAll.push(<EventItem key={element.key} title={element.title} date={element.date} image={element.image} keys={childSnapShot.key} type={element.type}/> );
+                if(element.type == 'tt'){
+                    listNews.push(<EventItem key={element.key} title={element.title} date={element.date} image={element.image} keys={childSnapShot.key} type={element.type}/> );
+                }
+                if(element.type == 'sk'){
+                    listEvent.push(<EventItem key={element.key} title={element.title} date={element.date} image={element.image} keys={childSnapShot.key} type={element.type}/> );
+                }
             })
-            setListEvent(list);
-            console.log(list);
+            setListEvent(listEvent);
+            setListNews(listNews);
+            setListAll(listAll);
         })
     },[]);
 
@@ -63,20 +78,28 @@ function EventList(props){
             <Header/>
             <SideMenu />
             <ItemHeader img={data[0].img}/>
-            <div className='event-item-list'>
-                {/* {
-                    {
-                    listEvent.forEach(element => {
-                        <EventItem title={element.title} date={element.date}/> 
-                    })
-                    }
-                } */}
-                {/* <EventItem img={data[0].img}/> 
-                <EventItem img={data[0].img}/> 
-                <EventItem img={data[0].img}/> 
-                <EventItem img={data[0].img}/>  */}
-                {listEvent}
-            </div>
+ 
+            <div style={{width:"90%",margin:"auto"}}>
+
+                <Tabs defaultActiveKey="1">
+                    <TabPane tab="Tất Cả" key="1">
+                    <div className='event-item-list'>
+                        {listAll}
+                    </div>
+                    </TabPane>
+                    <TabPane tab="Tin Tức" key="2">
+                    <div className='event-item-list'>
+                        {listNews}
+                    </div>
+                    </TabPane>
+                    <TabPane tab="Sự Kiện" key="3">
+                    <div className='event-item-list'>
+                        {listEvent}
+                    </div>
+                    </TabPane>
+                </Tabs>,
+                 
+                </div>
   
         </div>
     )

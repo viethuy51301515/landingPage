@@ -27,30 +27,25 @@ const ItemHeader = function(props){
 const EventItem = (props)=>{
     
     return(
-        <Link to={'/eventDetail/123'} className='eventItem'>
+        <Link to={`/eventDetail/${props.keys}`} className='eventItem'>
         {/* <a className='eventItem'> */}
-            <h2>GIÁO DỤC TRỰC TUYẾN LÀ GIẢI PHÁP TỐI ƯU CHO HỌC SINH ĐỐI PHÓ DỊCH BỆNH?</h2>
+    <h2>{props.title}</h2>
             <div className='info'>
                 <ul>
                     <li>
                         <FontAwesomeIcon icon={faCalendarAlt}></FontAwesomeIcon>
-                        <span>20/10/2020</span>
+                        <span>{props.date.split(" ")[0]}</span>
                     </li>
                
                     <li>
                         <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
-                        <span>11:10</span>
+                        <span>{props.date.split(" ")[1]}</span>
                     </li>
                    
                 </ul>
             </div>
         {/* </a> */}
         </Link>
-    )
-}
-const RelatedItem = function(props) {
-    return(
-        <EventItem></EventItem>
     )
 }
 const EventDetail = (props)=>{
@@ -94,13 +89,32 @@ Ready to start writing?  Either start changing stuff on the left or
     `;
     const [data,setData] = useState({});
     const [content,setContent] = useState();
+    const [items,setListItems] = useState();
     useEffect(()=>{
         eventRef.child(props.match.params.id).once('value').then(snapshot =>{
             var item = snapshot.val();
             setData(item);
-            setContent(`${item.date}`+marked(test));
+            setContent(`${item.date}`+marked(item.content.split("\\n").join('\n')));
+           
+            return item;
+        }).then(item =>{
+            console.log(item)
+            eventRef.orderByChild("type").equalTo(item.type).limitToLast(4).once('value').then(snapshot =>{
+                let list = [];
+                snapshot.forEach(sp => {
+                    console.log(sp.val());
+                    list.push( <EventItem date={sp.val().date} title={sp.val().title} keys={sp.key}/>)
+                    
+                });
+                setListItems(list);
+            })
         })
-    });
+        // eventRef.equalTo("").once('value').then(snapshot =>{
+        //     snapshot.forEach(sp => {
+                
+        //     });
+        // })
+    },[]);
     return(
         <div >
             <Header/>
@@ -113,10 +127,7 @@ Ready to start writing?  Either start changing stuff on the left or
                 </div>
                 <div className='related'>
                     <h2>Tin khác</h2>
-                    <RelatedItem/>
-                    <RelatedItem/>
-                    <RelatedItem/>
-                    <RelatedItem/>
+                    {items}
                 </div>
             </div>
 
