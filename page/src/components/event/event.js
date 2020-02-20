@@ -18,6 +18,7 @@ const ItemHeader = function(props){
     )
 }
 const EventItem = (props)=>{
+    
     return(
         <Link to={`/eventDetail/${props.keys}`} className='eventItem'>
         {/* <a className='eventItem'> */}
@@ -75,7 +76,7 @@ function EventList(props){
 
     return(
         <div className='event-list'>
-            <Header/>
+            <Header child="true"/>
             <SideMenu />
             <ItemHeader img={data[0].img}/>
  

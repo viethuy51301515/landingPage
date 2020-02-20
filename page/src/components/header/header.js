@@ -81,18 +81,6 @@ class Header extends React.Component{
                                     <a href='/'>Trang Chủ</a>
                             
                             </Menu.Item>
-                            <Menu.Item key='3'>
-
-                                <span>
-                                     <a className='menu-ref' href="#about-us">Về Chúng tôi</a> 
-                                </span>
-                            </Menu.Item>
-                            <Menu.Item key='4'>
-
-                                <span>
-                                   <a className='menu-ref' href="#course-id">Khóa Học</a>
-                                </span>
-                            </Menu.Item>     
                             <Menu.Item key='6'>
                                 <span>
                                         {/* <a  href="#event-id"> */}
@@ -100,18 +88,46 @@ class Header extends React.Component{
                                         </Link>
                                 </span>
                             </Menu.Item>   
-                            <Menu.Item key='5'>
+                            { 
+                                this.props.child == undefined ? 
+                                <Menu.Item key='3'>
 
-                                <span>
-                                   <a className='menu-ref' href="#teacher-id">Đội Ngũ Giáo Viên</a> 
-                                </span>
-                            </Menu.Item>  
-                            <Menu.Item key='8'>
+                                    <span>
+                                        <a className='menu-ref' href="#about-us">Về Chúng tôi</a> 
+                                    </span>
+                                </Menu.Item> 
+                                : ""
+                            }
+                            { 
+                                this.props.child == undefined ? 
+                                <Menu.Item key='4'>
+
+                                    <span>
+                                    <a className='menu-ref' href="#course-id">Khóa Học</a>
+                                    </span>
+                                </Menu.Item>     
+                                : ""
+                            }          
+                            { 
+                                this.props.child == undefined ?     
+                                <Menu.Item key='5'>
+
+                                    <span>
+                                    <a className='menu-ref' href="#teacher-id">Đội Ngũ Giáo Viên</a> 
+                                    </span>
+                                </Menu.Item>  
+                                : ""
+                            }                
+                            { 
+                                this.props.child == undefined ?        
+                                <Menu.Item key='8'>
 
                                 <span>
                                     <a className='menu-ref' href="#contact-id">Liên Hệ</a> 
                                 </span>
-                            </Menu.Item>          
+                                </Menu.Item>    
+                                : ""
+                            }      
                         </Menu>
                         </div>
                         <div className='hamburger-button' onClick={this.toogleSideMenu}>

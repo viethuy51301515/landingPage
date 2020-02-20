@@ -67,7 +67,7 @@ class SylabusDetailTemp extends React.Component{
 
         return(
             <div>
-                <Header/>
+                <Header child="true"/>
                 <SideMenu />
                 <ItemHeader img={selectedData.img}/>
                 <div className='lt-layout'>
@@ -77,12 +77,12 @@ class SylabusDetailTemp extends React.Component{
                     </div>
                 </div>
                 {listItem}
-                <div className='fee-layout'>
+                {/* <div className='fee-layout'>
                     <h2>Học Phí</h2>
                     <div>
                         <img src={fee} alt=""/>
                     </div>
-                </div>
+                </div> */}
                 <Footer />
             </div>
         )

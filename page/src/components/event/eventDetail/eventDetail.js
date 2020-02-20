@@ -25,9 +25,9 @@ const ItemHeader = function(props){
     )
 }
 const EventItem = (props)=>{
-    
+
     return(
-        <Link to={`/eventDetail/${props.keys}`} className='eventItem'>
+        <Link to={`/eventDetail/${props.keys}`} className='eventItem' onClick={props.changeUrl}>
         {/* <a className='eventItem'> */}
     <h2>{props.title}</h2>
             <div className='info'>
@@ -90,6 +90,11 @@ Ready to start writing?  Either start changing stuff on the left or
     const [data,setData] = useState({});
     const [content,setContent] = useState();
     const [items,setListItems] = useState();
+    const [reload,setReload] = useState(false);
+    const changeUrl = ()=>{
+        setReload(!reload);
+        console.log("12321")
+    }
     useEffect(()=>{
         eventRef.child(props.match.params.id).once('value').then(snapshot =>{
             var item = snapshot.val();
@@ -103,7 +108,7 @@ Ready to start writing?  Either start changing stuff on the left or
                 let list = [];
                 snapshot.forEach(sp => {
                     console.log(sp.val());
-                    list.push( <EventItem date={sp.val().date} title={sp.val().title} keys={sp.key}/>)
+                    list.push( <EventItem date={sp.val().date} title={sp.val().title} keys={sp.key} changeUrl={changeUrl}/>)
                     
                 });
                 setListItems(list);
@@ -114,10 +119,10 @@ Ready to start writing?  Either start changing stuff on the left or
                 
         //     });
         // })
-    },[]);
+    },[reload]);
     return(
         <div >
-            <Header/>
+            <Header child="true"/>
             <SideMenu />
             <ItemHeader image={data.image}/>
             <div className='event-content'>
