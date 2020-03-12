@@ -14,5 +14,7 @@ const databaseRef = firebase.database().ref();
 const store = firebase.storage().ref();
 export const todosRef = databaseRef.child("parent-info");
 export const eventRef = databaseRef.child("news_event");
+export const teacherRef = databaseRef.child("teacherList");
+export const teacherStore = store.child('teacherImg');
 export const storeData = store;
 
